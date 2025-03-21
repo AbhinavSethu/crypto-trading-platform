@@ -1,40 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Crypto Trading Platform
 
-## Getting Started
+A mock cryptocurrency trading platform built using Next.js, Tailwind CSS, Node.js (Express), and MongoDB. This platform allows users to trade virtual cryptocurrencies, track their portfolio, and view real-time market data. Admins can manage trades, update prices, and oversee transactions.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### User Features:
+- View listed cryptocurrencies with real-time price updates
+- Place buy/sell requests for crypto assets
+- Track portfolio and transaction history
+- Secure authentication with JWT
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Admin Features:
+- Approve or reject buy/sell requests
+- Manage listed cryptocurrencies
+- Update market prices
+- View users' transaction history
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Tech Stack
+- **Frontend:** Next.js, Tailwind CSS
+- **Backend:** Node.js (Express), MongoDB
+- **Authentication:** JSON Web Tokens (JWT)
+- **Market Data:** CoinGecko API
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Installation
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+### Prerequisites:
+- Node.js and npm installed
+- MongoDB database set up
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Steps:
+1. Clone the repository:
+   ```sh
+   git clone https://github.com/your-username/crypto-trading-platform.git
+   cd crypto-trading-platform
+   ```
+2. Install dependencies:
+   ```sh
+   npm install
+   ```
+3. Set up environment variables in a `.env` file:
+   ```env
+   MONGO_URI=your-mongodb-connection-string
+   JWT_SECRET=your-secret-key
+   COINGECKO_API_URL=https://api.coingecko.com/api/v3/
+   ```
+4. Run the development server:
+   ```sh
+   npm run dev
+   ```
+5. Open `http://localhost:3000` in your browser.
 
-## Learn More
+## API Endpoints
 
-To learn more about Next.js, take a look at the following resources:
+| Method | Endpoint            | Description                      |
+|--------|---------------------|----------------------------------|
+| GET    | `/api/coins`        | Fetch all listed cryptocurrencies |
+| POST   | `/api/trade/buy`    | Place a buy order               |
+| POST   | `/api/trade/sell`   | Place a sell order              |
+| GET    | `/api/portfolio`    | Get user portfolio              |
+| GET    | `/api/admin/orders` | Get all trade requests (Admin)  |
+| POST   | `/api/admin/approve`| Approve a trade request (Admin) |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+## Contributing
+Feel free to submit pull requests or report issues.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## License
+MIT License
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
